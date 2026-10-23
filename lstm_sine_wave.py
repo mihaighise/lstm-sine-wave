@@ -76,10 +76,10 @@ class WindowDataset(Dataset):
     def __getitem__(self, i):
         # X = last i number of values
         # y = next item after the sequence length starting from i
-        print(self.series.shape)
         x = self.series[i : i + self.seq_len].unsqueeze(dim=-1)        # shape of (seq_len, 1) -> seq_len samples and 1 feature
-        print(x.shape)
+        print(f"Shape of x: {x.shape}")
         y = self.series[i + self.seq_len].unsqueeze(dim=-1)            # shape of (1, )
+        print(f"Shape of y: {y.shape}")
         return x, y
 
 if __name__ == "__main__":
